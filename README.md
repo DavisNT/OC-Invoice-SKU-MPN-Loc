@@ -1,6 +1,29 @@
-MIT License
+OpenCart 2.3 Invoice SKU MPN Loc
+===============
+OpenCart 2.3 modification to display Manufacturer name, SKU, MPN and Location instead of Model in invoices (in OpenCart admin interface).
 
-Copyright (c) 2020-2022 Dāvis Mošenkovs
+## Introduction
+
+This modification changes invoices in OpenCart admin interface - adds Manufacturer, SKU, MPN and Location columns, and removes Model column from table of products in the invoice.
+
+This is tested only on OpenCart 2.3.0.2.
+
+## Installation
+
+1. Open Extensions Installer in OpenCart admin interface.
+1. Upload/install `Invoice-SKU-MPN-Loc.ocmod.xml`.
+1. Open Modifications in OpenCart admin interface and click Refresh.
+1. Edit the language file (e.g. `admin/language/en-gb/sale/order.php`) of your OpenCart installation (e.g. via FTP) and add (or adjust if needed) lines like these:
+
+```php
+$_['column_sku']             = 'SKU';
+$_['column_mpn']             = 'MPN';
+$_['column_manufacturer']    = 'Manufacturer';
+$_['column_location']        = 'Location';
+```
+
+
+## Notices
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
