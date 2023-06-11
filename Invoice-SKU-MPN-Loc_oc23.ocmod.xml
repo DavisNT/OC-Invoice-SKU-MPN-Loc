@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Replace model with manufacturer, SKU, MPN and location in admin invoice</name>
-    <version>0.1</version>
+    <version>0.1.1</version>
     <author>Dāvis Mošenkovs</author>
     <link>https://github.com/DavisNT/OC-Invoice-SKU-MPN-Loc</link>
     <code>davisnt_invoiceskumpnloc</code>
@@ -11,7 +11,7 @@
             $query = $this->db->query("SELECT * FROM " . DB_PREFIX . "order_product WHERE order_id = '" . (int)$order_id . "'");
             ]]></search>
             <add position="replace"><![CDATA[
-            $query = $this->db->query("SELECT op.*, p.sku, p.mpn, p.location, m.name AS manufacturer FROM " . DB_PREFIX . "order_product op LEFT JOIN product p ON op.product_id = p.product_id LEFT JOIN manufacturer m ON p.manufacturer_id = m.manufacturer_id WHERE order_id = '" . (int)$order_id . "'");
+            $query = $this->db->query("SELECT op.*, p.sku, p.mpn, p.location, m.name AS manufacturer FROM " . DB_PREFIX . "order_product op LEFT JOIN " . DB_PREFIX . "product p ON op.product_id = p.product_id LEFT JOIN " . DB_PREFIX . "manufacturer m ON p.manufacturer_id = m.manufacturer_id WHERE order_id = '" . (int)$order_id . "'");
             ]]></add>
         </operation>
     </file>  
